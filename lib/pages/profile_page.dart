@@ -20,8 +20,7 @@ class _ProfilePageState extends State<ProfilePage> {
     final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
     final String firebaseUser =
         _firebaseAuth.currentUser!.displayName ?? 'Unknown user';
-    final String firebaseEmail =
-        _firebaseAuth.currentUser!.email as String;
+    final String firebaseEmail = _firebaseAuth.currentUser!.email as String;
     return Scaffold(
       backgroundColor: Styles.bgColor,
       body: SingleChildScrollView(
@@ -34,33 +33,36 @@ class _ProfilePageState extends State<ProfilePage> {
             children: [
               Column(
                 children: [
-                  Row(
-                    children: [
-                      Column(
-                        children: [
-                          Image.asset(
-                            'assets/images/avatar.png',
-                            scale: 12,
-                          ),
-                        ],
-                      ),
-                      Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 25),
-                        child: Column(
+                  FittedBox(
+                    fit: BoxFit.fitWidth,
+                    child: Row(
+                      children: [
+                        Column(
                           children: [
-                            Text(
-                              firebaseUser,
-                              style: Styles.headLineStyle1,
+                            Image.asset(
+                              'assets/images/avatar.png',
+                              scale: 12,
                             ),
-                            Text(
-                              firebaseEmail,
-                              style: Styles.headLineStyle3,
-                            )
                           ],
                         ),
-                      ),
-                    ],
-                  ),
+                        Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 25),
+                          child: Column(
+                            children: [
+                              Text(
+                                firebaseUser,
+                                style: Styles.headLineStyle1,
+                              ),
+                              Text(
+                                firebaseEmail,
+                                style: Styles.headLineStyle4,
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
               SizedBox(
