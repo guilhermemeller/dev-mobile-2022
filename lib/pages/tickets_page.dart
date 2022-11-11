@@ -48,9 +48,11 @@ class _TicketsPage extends State<TicketsPage> {
     ticketService.getTickets().then((e) {
       tickets(e);
       loadingTick(false);
+      if(mounted){
       setState(() {
         
       });
+      }
     });
 
     super.initState();
