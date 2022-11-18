@@ -47,5 +47,9 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow TicketApp to use Camera</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Allow TicketApp to use Microphone</string>
 </dict>
 </plist>

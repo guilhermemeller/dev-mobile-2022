@@ -15,7 +15,7 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
-
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import '../models/ticket.dart';
 import '../utils/app_layout.dart';
 import '../widgets/layout_builder.dart';
@@ -36,22 +36,32 @@ class _TicketsPage extends State<TicketsPage> {
   final seat = TextEditingController();
   final date = TextEditingController();
   final sessiontime = TextEditingController();
-  
+
   final loadingTick = true.obs;
+
+  String ticket = '';
 
   final tickets = [].obs;
 
   final TicketService ticketService = new TicketService();
-  
+
+  readQRCode() async {
+    String code = await FlutterBarcodeScanner.scanBarcode(
+      "#FFFFFF",
+      "Cancel",
+      false,
+      ScanMode.QR,
+    );
+    setState(() => ticket = code != '-1' ? code : 'Not validated');
+  }
+
   @override
   void initState() {
     ticketService.getTickets().then((e) {
       tickets(e);
       loadingTick(false);
-      if(mounted){
-      setState(() {
-        
-      });
+      if (mounted) {
+        setState(() {});
       }
     });
 
@@ -148,7 +158,14 @@ class _TicketsPage extends State<TicketsPage> {
                                 child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.pop(context);
-                                    this.ticketService.insertTicket(title.text, ticketcode.text, int.parse(studentid.text), int.parse(room.text), seat.text, date.text, sessiontime.text);
+                                    this.ticketService.insertTicket(
+                                        title.text,
+                                        ticketcode.text,
+                                        int.parse(studentid.text),
+                                        int.parse(room.text),
+                                        seat.text,
+                                        date.text,
+                                        sessiontime.text);
                                     final snackBar = SnackBar(
                                       content: const Text('Ticket Added!'),
                                       backgroundColor: (Colors.grey),
@@ -187,6 +204,19 @@ class _TicketsPage extends State<TicketsPage> {
                     children: const [
                       Icon(FluentSystemIcons.ic_fluent_add_filled),
                     ],
+                  ),
+                ),
+              ),
+              Gap(AppLayout.getHeight(20)),
+              Container(
+                alignment: Alignment.bottomCenter,
+                child: ElevatedButton.icon(
+                  onPressed: readQRCode,
+                  icon: const Icon(Icons.qr_code),
+                  label: const Text('Validate'),
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Styles.darkBorwnColor),
                   ),
                 ),
               ),
@@ -320,29 +350,27 @@ class _TicketsPage extends State<TicketsPage> {
               ),
               Gap(AppLayout.getHeight(20)),
               Container(
-                padding: EdgeInsets.only(left: AppLayout.getHeight(0)),
-                child: Obx(() => loadingTick.value ? Column() : 
-                  Column(
-                    children: tickets.value.map<Widget>((e) {
-                      Map<String, dynamic> gambi = {
-                          "id": e.id,
-                          "title": e.title,
-                          "ticket_code": e.ticketcode,
-                          "student_id": e.studentid,
-                          "room": e.room,
-                          "seat": e.seat,
-                          "runtime": '2h:30min',
-                          "date": e.date,
-                          "session_time": e.sessiontime
-                      };
+                  padding: EdgeInsets.only(left: AppLayout.getHeight(0)),
+                  child: Obx(() => loadingTick.value
+                      ? Column()
+                      : Column(
+                          children: tickets.value.map<Widget>((e) {
+                          Map<String, dynamic> gambi = {
+                            "id": e.id,
+                            "title": e.title,
+                            "ticket_code": e.ticketcode,
+                            "student_id": e.studentid,
+                            "room": e.room,
+                            "seat": e.seat,
+                            "runtime": '2h:30min',
+                            "date": e.date,
+                            "session_time": e.sessiontime
+                          };
 
-                      return TicketView(
-                        ticket: gambi,
-                      );
-                    })
-                    .toList()
-                )
-              ))
+                          return TicketView(
+                            ticket: gambi,
+                          );
+                        }).toList())))
             ],
           ),
         ],
