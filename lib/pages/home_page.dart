@@ -1,12 +1,10 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 import 'package:book_tickets/pages/profile_page.dart';
 import 'package:book_tickets/pages/welcome_page.dart';
 import 'package:book_tickets/pages/search_page.dart';
 import 'package:book_tickets/pages/tickets_page.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:book_tickets/pages/login_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -32,18 +30,19 @@ class _HomePageState extends State<HomePage> {
     pc = PageController(initialPage: currentPage);
   }
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: PageView(
         physics: NeverScrollableScrollPhysics(),
         controller: pc,
+        onPageChanged: setCurrentPage,
         children: [
           WelcomePage(),
           SearchPage(),
           TicketsPage(),
           ProfilePage(),
         ],
-        onPageChanged: setCurrentPage,
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentPage,

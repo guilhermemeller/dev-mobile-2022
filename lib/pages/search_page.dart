@@ -1,10 +1,9 @@
+// ignore_for_file: unnecessary_string_escapes
+
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:book_tickets/widgets/icon_text_widget.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import '../utils/app_styles.dart';
 import 'package:gap/gap.dart';
 
@@ -82,23 +81,21 @@ class SearchPage extends StatelessWidget {
                           child: Center(
                             child: Container(
                               padding: EdgeInsets.all(AppLayout.getHeight(15)),
-                              child: Container(
-                                child: Column(
-                                  children: [
-                                    Text("The Godfather",
-                                        style: Styles.headLineStyle1
-                                            .copyWith(color: Colors.white)),
-                                    Gap(AppLayout.getHeight(40)),
-                                    Text(
-                                        "The Godfather '\Don'\ Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it.",
-                                        style: Styles.headLineStyle3
-                                            .copyWith(color: Colors.white)),
-                                    Gap(AppLayout.getHeight(40)),
-                                    Text("IMDB: 9.2",
-                                        style: Styles.headLineStyle3
-                                            .copyWith(color: Colors.white)),
-                                  ],
-                                ),
+                              child: Column(
+                                children: [
+                                  Text("The Godfather",
+                                      style: Styles.headLineStyle1
+                                          .copyWith(color: Colors.white)),
+                                  Gap(AppLayout.getHeight(40)),
+                                  Text(
+                                      "The Godfather '\Don'\ Vito Corleone is the head of the Corleone mafia family in New York. He is at the event of his daughter's wedding. Michael, Vito's youngest son and a decorated WW II Marine is also present at the wedding. Michael seems to be uninterested in being a part of the family business. Vito is a powerful man, and is kind to all those who give him respect but is ruthless against those who do not. But when a powerful and treacherous rival wants to sell drugs and needs the Don's influence for the same, Vito refuses to do it.",
+                                      style: Styles.headLineStyle3
+                                          .copyWith(color: Colors.white)),
+                                  Gap(AppLayout.getHeight(40)),
+                                  Text("IMDB: 9.2",
+                                      style: Styles.headLineStyle3
+                                          .copyWith(color: Colors.white)),
+                                ],
                               ),
                             ),
                           ),
@@ -199,23 +196,21 @@ class SearchPage extends StatelessWidget {
                                 child: Container(
                                   padding:
                                       EdgeInsets.all(AppLayout.getHeight(15)),
-                                  child: Container(
-                                    child: Column(
-                                      children: [
-                                        Text("Letters to Julliet",
-                                            style: Styles.headLineStyle1
-                                                .copyWith(color: Colors.white)),
-                                        Gap(AppLayout.getHeight(40)),
-                                        Text(
-                                            "An American girl on vacation in Italy finds an unanswered '\letter to Juliet'\ -- one of thousands of missives left at the fictional lover's Verona courtyard, which are typically answered by the '\secretaries of Juliet'\ -- and she goes on a quest to find the lovers referenced in the letter.",
-                                            style: Styles.headLineStyle3
-                                                .copyWith(color: Colors.white)),
-                                        Gap(AppLayout.getHeight(40)),
-                                        Text("IMDB: 6.5",
-                                            style: Styles.headLineStyle3
-                                                .copyWith(color: Colors.white)),
-                                      ],
-                                    ),
+                                  child: Column(
+                                    children: [
+                                      Text("Letters to Julliet",
+                                          style: Styles.headLineStyle1
+                                              .copyWith(color: Colors.white)),
+                                      Gap(AppLayout.getHeight(40)),
+                                      Text(
+                                          "An American girl on vacation in Italy finds an unanswered '\letter to Juliet'\ -- one of thousands of missives left at the fictional lover's Verona courtyard, which are typically answered by the '\secretaries of Juliet'\ -- and she goes on a quest to find the lovers referenced in the letter.",
+                                          style: Styles.headLineStyle3
+                                              .copyWith(color: Colors.white)),
+                                      Gap(AppLayout.getHeight(40)),
+                                      Text("IMDB: 6.5",
+                                          style: Styles.headLineStyle3
+                                              .copyWith(color: Colors.white)),
+                                    ],
                                   ),
                                 ),
                               ),

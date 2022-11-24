@@ -1,9 +1,6 @@
-import 'dart:ffi';
-
 import 'package:book_tickets/utils/app_styles.dart';
 import 'package:book_tickets/widgets/layout_builder.dart';
 import 'package:book_tickets/widgets/thick_container.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';

@@ -1,10 +1,5 @@
 import 'package:book_tickets/pages/tickets_page.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
-import '../pages/home_page.dart';
 import '../utils/app_styles.dart';
 
 class AppDoubleTextWidget extends StatelessWidget {
@@ -28,7 +23,7 @@ class AppDoubleTextWidget extends StatelessWidget {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => TicketsPage(),
+                    builder: (context) => const TicketsPage(),
                   ));
             },
             child: Text(smallText,

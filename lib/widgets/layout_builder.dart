@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class AppLayoutBuilder extends StatelessWidget {
   final bool? isColor;
@@ -23,7 +20,7 @@ class AppLayoutBuilder extends StatelessWidget {
                     height: 1,
                     child: DecoratedBox(
                         decoration: BoxDecoration(
-                      color: isColor == null ? Color(0xFFeeedf2) : Colors.grey,
+                      color: isColor == null ? const Color(0xFFeeedf2) : Colors.grey,
                     )),
                   )),
         );

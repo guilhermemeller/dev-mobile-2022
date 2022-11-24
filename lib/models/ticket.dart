@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 class Ticket {
   int? id;
   String title;

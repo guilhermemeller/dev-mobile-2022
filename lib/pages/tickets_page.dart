@@ -1,22 +1,16 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:book_tickets/pages/ticktet_view.dart';
-import 'package:book_tickets/services/auth_service.dart';
 import 'package:book_tickets/services/ticket_service.dart';
 import 'package:book_tickets/utils/app_info_list.dart';
 import 'package:book_tickets/utils/app_styles.dart';
 import 'package:book_tickets/widgets/column_layout.dart';
 import 'package:book_tickets/widgets/ticket_tabs.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import '../models/ticket.dart';
 import '../utils/app_layout.dart';
 import '../widgets/layout_builder.dart';
 import 'package:barcode_widget/barcode_widget.dart';
@@ -24,7 +18,7 @@ import 'package:barcode_widget/barcode_widget.dart';
 class TicketsPage extends StatefulWidget {
   const TicketsPage({Key? key}) : super(key: key);
   @override
-  _TicketsPage createState() => _TicketsPage();
+  State<TicketsPage> createState() => _TicketsPage();
 }
 
 class _TicketsPage extends State<TicketsPage> {
@@ -43,7 +37,7 @@ class _TicketsPage extends State<TicketsPage> {
 
   final tickets = [].obs;
 
-  final TicketService ticketService = new TicketService();
+  final TicketService ticketService = TicketService();
 
   readQRCode() async {
     String code = await FlutterBarcodeScanner.scanBarcode(
@@ -158,6 +152,7 @@ class _TicketsPage extends State<TicketsPage> {
                                 child: ElevatedButton(
                                   onPressed: () {
                                     Navigator.pop(context);
+                                    // ignore: unnecessary_this
                                     this.ticketService.insertTicket(
                                         title.text,
                                         ticketcode.text,
@@ -354,6 +349,7 @@ class _TicketsPage extends State<TicketsPage> {
                   child: Obx(() => loadingTick.value
                       ? Column()
                       : Column(
+                          // ignore: invalid_use_of_protected_member
                           children: tickets.value.map<Widget>((e) {
                           Map<String, dynamic> gambi = {
                             "id": e.id,

@@ -1,10 +1,8 @@
+// ignore_for_file: unnecessary_brace_in_string_interps, avoid_function_literals_in_foreach_calls
+
 import 'dart:math';
 import 'package:book_tickets/models/ticket.dart';
-import 'package:book_tickets/services/auth_service.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class TicketService{
@@ -34,6 +32,7 @@ class TicketService{
     List<Ticket> tickets = [];
     uid = auth.FirebaseAuth.instance.currentUser!.uid;
 
+    // ignore: unused_local_variable
     DatabaseReference ref = FirebaseDatabase.instance.ref("${uid}/ticket");
 
     DataSnapshot data = await FirebaseDatabase.instance.ref("${uid}/ticket").get();
@@ -75,11 +74,11 @@ class TicketService{
                 room = int.parse(element.value.toString());
               break;
           }
+        // ignore: empty_catches
         }catch (e) {
-          print('TIPO DE \n DADO MODO BURRO');
         }
       });
-      tickets.add(new Ticket(
+      tickets.add(Ticket(
           id: id,
           title: title,
           ticketcode: ticketcode,

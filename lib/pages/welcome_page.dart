@@ -4,10 +4,7 @@ import 'package:book_tickets/utils/app_info_list.dart';
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:book_tickets/utils/app_styles.dart';
 import 'package:fluentui_icons/fluentui_icons.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:gap/gap.dart';
 
 import '../widgets/double_text_widget.dart';

@@ -1,4 +1,3 @@
-import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
 Color primary = const Color.fromARGB(161, 120, 82, 1);

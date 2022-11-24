@@ -1,12 +1,7 @@
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:book_tickets/utils/app_styles.dart';
-import 'package:book_tickets/widgets/layout_builder.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import '';
 
 class MovieScreen extends StatelessWidget {
   final Map<String, dynamic> movie;
@@ -23,7 +18,7 @@ class MovieScreen extends StatelessWidget {
       decoration: BoxDecoration(
         color: const Color.fromRGBO(201, 173, 146, 1),
         borderRadius: BorderRadius.circular(24),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(color: Colors.grey, blurRadius: 2, spreadRadius: 1),
         ],
       ),
@@ -50,7 +45,7 @@ class MovieScreen extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                     backgroundColor: Styles.darkBorwnColor,
-                    shape: RoundedRectangleBorder(
+                    shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.vertical(
                         top: Radius.circular(30),
                       ),
@@ -62,22 +57,20 @@ class MovieScreen extends StatelessWidget {
                         child: Center(
                           child: Container(
                             padding: EdgeInsets.all(AppLayout.getHeight(15)),
-                            child: Container(
-                              child: Column(
-                                children: [
-                                  Text("${movie['title']}",
-                                      style: Styles.headLineStyle1
-                                          .copyWith(color: Colors.white)),
-                                  Gap(AppLayout.getHeight(40)),
-                                  Text("${movie['description']}",
-                                      style: Styles.headLineStyle3
-                                          .copyWith(color: Colors.white)),
-                                  Gap(AppLayout.getHeight(40)),
-                                  Text("IMDB: ${movie['imdb_score']}",
-                                      style: Styles.headLineStyle3
-                                          .copyWith(color: Colors.white)),
-                                ],
-                              ),
+                            child: Column(
+                              children: [
+                                Text("${movie['title']}",
+                                    style: Styles.headLineStyle1
+                                        .copyWith(color: Colors.white)),
+                                Gap(AppLayout.getHeight(40)),
+                                Text("${movie['description']}",
+                                    style: Styles.headLineStyle3
+                                        .copyWith(color: Colors.white)),
+                                Gap(AppLayout.getHeight(40)),
+                                Text("IMDB: ${movie['imdb_score']}",
+                                    style: Styles.headLineStyle3
+                                        .copyWith(color: Colors.white)),
+                              ],
                             ),
                           ),
                         ),

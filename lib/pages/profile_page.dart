@@ -1,22 +1,19 @@
 import 'package:book_tickets/services/auth_service.dart';
 import 'package:book_tickets/utils/app_layout.dart';
-import 'package:book_tickets/utils/app_styles.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:book_tickets/utils/app_styles.dart';import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 
 class ProfilePage extends StatefulWidget {
-  ProfilePage({Key? key}) : super(key: key);
+  const ProfilePage({Key? key}) : super(key: key);
   @override
-  _ProfilePageState createState() => _ProfilePageState();
+  State<ProfilePage> createState() => _ProfilePageState();
 }
 
 class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
+    // ignore: no_leading_underscores_for_local_identifiers
     final auth.FirebaseAuth _firebaseAuth = auth.FirebaseAuth.instance;
     final String firebaseUser =
         _firebaseAuth.currentUser!.displayName ?? 'Unknown user';
@@ -25,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
       backgroundColor: Styles.bgColor,
       body: SingleChildScrollView(
           child: Padding(
-        padding: EdgeInsets.only(top: 70),
+        padding: const EdgeInsets.only(top: 70),
         child: Container(
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Column(
@@ -118,12 +115,12 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 65),
+                padding: const EdgeInsets.symmetric(vertical: 65),
                 child: OutlinedButton(
                   onPressed: () => context.read<AuthService>().logout(),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
+                    children: const [
                       Padding(
                         padding: EdgeInsets.all(16.0),
                         child: Text(

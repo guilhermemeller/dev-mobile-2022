@@ -1,7 +1,5 @@
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import '../utils/app_styles.dart';
 import 'package:gap/gap.dart';
 
@@ -24,7 +22,7 @@ class AppIconText extends StatelessWidget {
         children: [
           Icon(
             icon,
-            color: Color.fromRGBO(201, 173, 146, 1),
+            color: const Color.fromRGBO(201, 173, 146, 1),
           ),
           Gap(AppLayout.getWidth(10)),
           Text(
