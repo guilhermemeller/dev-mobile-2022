@@ -19,8 +19,7 @@ void main() async {
         ChangeNotifierProvider(create: (context) => AuthService()),
 
       ],
-      // ignore: prefer_const_constructors
-      child: MyApp(),
+      child: const MyApp(),
     ),
   );
 }

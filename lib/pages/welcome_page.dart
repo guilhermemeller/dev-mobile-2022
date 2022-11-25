@@ -1,5 +1,8 @@
+import 'package:book_tickets/controller/movie_controller.dart';
 import 'package:book_tickets/pages/movie_view.dart';
 import 'package:book_tickets/pages/ticktet_view.dart';
+import 'package:book_tickets/repositories/movie_repository_imp.dart';
+import 'package:book_tickets/services/dio_service_imp.dart';
 import 'package:book_tickets/utils/app_info_list.dart';
 import 'package:book_tickets/utils/app_layout.dart';
 import 'package:book_tickets/utils/app_styles.dart';
@@ -9,8 +12,17 @@ import 'package:gap/gap.dart';
 
 import '../widgets/double_text_widget.dart';
 
-class WelcomePage extends StatelessWidget {
-  const WelcomePage({super.key});
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({Key? key}) : super(key: key);
+
+  @override
+  State<WelcomePage> createState() => _WelcomePageSatate();
+}
+
+class _WelcomePageSatate extends State<WelcomePage> {
+  final MovieController _controller = MovieController(
+    MoviesRepositoryImp(DioServiceImp()),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -85,7 +97,7 @@ class WelcomePage extends StatelessWidget {
             child: Row(
               children: ticketList
                   .map((singleTicket) => TicketView(
-                        ticket: singleTicket, 
+                        ticket: singleTicket,
                         isColor: null,
                       ))
                   .toList(),
