@@ -8,8 +8,8 @@ class MoviesRepositoryImp implements MoviesRepository{
   MoviesRepositoryImp(this._dioService);
 
   @override
-  Future<Movies> getMovies() async {
+  Future<Movie> getMovies() async {
     var result = await _dioService.getDio().get(API.REQUEST_MOVIE_LIST);
-    return Movies.fromJson(result.data);
+    return Movie.fromJson(result.data);
   }
 }

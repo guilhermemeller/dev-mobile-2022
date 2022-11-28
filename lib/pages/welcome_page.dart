@@ -1,4 +1,5 @@
 import 'package:book_tickets/controller/movie_controller.dart';
+import 'package:book_tickets/models/Movie.model.dart';
 import 'package:book_tickets/pages/movie_view.dart';
 import 'package:book_tickets/pages/ticktet_view.dart';
 import 'package:book_tickets/repositories/movie_repository_imp.dart';
@@ -123,6 +124,22 @@ class _WelcomePageSatate extends State<WelcomePage> {
           /*
             Movies in display 
           */
+
+          SizedBox(
+            child: ValueListenableBuilder<Movie?>(
+                  valueListenable:  _controller.movies,
+                  builder: (_, movies, __) {
+                    return  movies != null
+                      ? ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: movies.movies.length,
+                        itemBuilder: (_, idx)=> Text(movies.movies[idx].title.toString()),
+                      )
+                    : Container();
+                  },
+                ),
+          ),
+
           SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.only(right: 20),
