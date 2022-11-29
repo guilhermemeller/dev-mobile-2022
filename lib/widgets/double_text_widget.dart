@@ -19,13 +19,6 @@ class AppDoubleTextWidget extends StatelessWidget {
           style: Styles.headLineStyle2,
         ),
         InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const TicketsPage(),
-                  ));
-            },
             child: Text(smallText,
                 style: Styles.textStyle.copyWith(color: Styles.primaryColor))),
       ],
