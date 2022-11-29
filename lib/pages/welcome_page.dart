@@ -1,6 +1,6 @@
 import 'package:book_tickets/controller/movie_controller.dart';
 import 'package:book_tickets/models/Movie.model.dart';
-import 'package:book_tickets/pages/movie_view.dart';
+import 'package:book_tickets/widgets/movie_view_widget.dart';
 import 'package:book_tickets/pages/ticktet_view.dart';
 import 'package:book_tickets/repositories/movie_repository_imp.dart';
 import 'package:book_tickets/services/dio_service_imp.dart';
