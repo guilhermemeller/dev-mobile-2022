@@ -104,50 +104,37 @@ class _WelcomePageSatate extends State<WelcomePage> {
                   .toList(),
             ),
           ),
-          const Gap(15),
-          /*
-            New Movies and view all part
-          */
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "New Movies",
-                  style: Styles.headLineStyle2,
-                ),
-              ],
+          Padding(
+            padding: const EdgeInsets.all(28),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "New Movies",
+                    style: Styles.headLineStyle2,
+                  ),
+                ],
+              ),
             ),
           ),
-          const Gap(15),
-          /*
-            Movies in display 
-          */
-
-          SizedBox(
-            child: ValueListenableBuilder<Movie?>(
-                  valueListenable:  _controller.movies,
-                  builder: (_, movies, __) {
-                    return  movies != null
-                      ? ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: movies.movies.length,
-                        itemBuilder: (_, idx)=> Text(movies.movies[idx].title.toString()),
-                      )
-                    : Container();
-                  },
-                ),
-          ),
-
-          SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.only(right: 20),
-              child: Row(
-                children: movieList
-                    .map((singleMovie) => MovieScreen(movie: singleMovie))
-                    .toList(),
-              )),
+           ValueListenableBuilder<Movie?>(
+                    valueListenable: _controller.movies,
+                    builder: (_, movies, __) {
+                      return movies != null
+                          ? SizedBox(
+                              height: AppLayout.getHeight(380),
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                scrollDirection: Axis.horizontal,
+                                itemCount: movies.movies.length,
+                                itemBuilder: (_, idx) =>
+                                    MovieScreen(movie: movies.movies[idx]),
+                              ),
+                            )
+                          : Container();
+                    },
+                  ),
         ],
       ),
     );
