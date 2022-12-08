@@ -1,4 +1,3 @@
-import 'package:book_tickets/pages/tickets_page.dart';
 import 'package:flutter/material.dart';
 import '../utils/app_styles.dart';
 
