@@ -17,5 +17,5 @@ Trabalho Desenvolvido pelos alunos:
 
 * **Guilherme Portela Meller RA: 2198347** - *Desenvolvimento Front/Back/API* - [Guilherme Portela](https://github.com/guilhermemeller)
 * **Abramo Floriolli RA: 2165074** - *Desenvolvimento Front/Conexão API* - [Abramo Floriolli](https://github.com/AbramoF)
-* **Gustavo Silva Ruiz RA: 2317516** - *Desenvolvimento Front/Design* - [Gustavo Ruiz](https://github.com/DevRuiz18)
+* **Gustavo Silva Ruiz RA: 2317516** - *Desenvolvimento Front/Design* - [Gustavo Ruiz](https://github.com/gussruiz)
 ---------------------------------------------------------------------------------------------
